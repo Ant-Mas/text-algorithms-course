@@ -23,15 +23,17 @@ def parse_publication(reference: str) -> Optional[dict]:
     # 1. Authors and year pattern
     # 2. Title and journal pattern
     # 3. Volume, issue, and pages pattern
-    authors_year_pattern = r""
-    title_journal_pattern = r""
-    volume_issue_pages_pattern = r""
-
+    authors_year_pattern = r"(\w+, \w\., )*\w+, \w\. \((?P<year>\d{4})\)."
+    title_journal_pattern = r" (?P<title>(?:\w| )+)\. (?P<journal>(?:\w| )+),"
+    volume_issue_pages_pattern = r" (?P<volume>\d+)(?:\((?P<issue>\d+)\))?, (?P<start>\d+)-(?P<end>\d+)\."
+    
     # TODO: Combine the patterns
-    full_pattern = ""
+    full_pattern = authors_year_pattern + title_journal_pattern + volume_issue_pages_pattern
 
     # TODO: Use re.match to try to match the full pattern against the reference
     # If there's no match, return None
+    if not re.match(full_pattern, reference):
+        return None
 
     # TODO: Extract information using regex
     # Each author should be parsed into a dictionary with 'last_name' and 'initial' keys
@@ -39,13 +41,22 @@ def parse_publication(reference: str) -> Optional[dict]:
     authors_list = []
 
     # TODO: Create a pattern to match individual authors
-    author_pattern = r""
+    author_pattern = r"(\w+), (\w)\."
 
     # TODO: Use re.finditer to find all authors and add them to authors_list
+    for match in re.finditer(author_pattern, reference):
+        authors_list.append({"last_name": match.group(1), "initial": match.group(2)})
+
 
     # TODO: Create and return the final result dictionary with all the parsed information
     # It should include authors, year, title, journal, volume, issue, and pages
-
-    result = {}
+    match = re.match(full_pattern, reference)
+    result = {"authors": authors_list,
+              "year": int(match.group('year')),
+              "title": match.group('title'),
+              "journal": match.group('journal'),
+              "volume": int(match.group('volume')),
+              "issue": int(match.group('issue')) if match.group('issue') else None,
+              "pages": {'start': int(match.group('start')), 'end': int(match.group('end'))}}
 
     return result
