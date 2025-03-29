@@ -1,5 +1,5 @@
 from parse_publication import parse_publication
-
+from extract_links import extract_links
 class TestPublicationParsing:
     def test_basic_publication(self):
         reference = (
@@ -43,7 +43,49 @@ class TestPublicationParsing:
         assert parse_publication("Niepoprawna referencja") is None
         assert parse_publication("") is None
 
-def main():
+class TestHtmlLinkExtraction:
+    def test_basic_links(self):
+        html = (
+            '<div><a href="https://www.agh.edu.pl">AGH</a> <a href="https://www.agh.edu.pl/wydzialy" '
+            'title="Wydziały">Wydziały AGH</a></div>'
+        )
+        result = extract_links(html)
+
+        assert len(result) == 2
+        assert result[0] == {
+            "url": "https://www.agh.edu.pl",
+            "text": "AGH",
+            "title": None,
+        }
+        assert result[1] == {
+            "url": "https://www.agh.edu.pl/wydzialy",
+            "text": "Wydziały AGH",
+            "title": "Wydziały",
+        }
+
+    def test_empty_html(self):
+        assert extract_links("") == []
+        assert extract_links("<div>Tekst bez linków</div>") == []
+
+    def test_complex_html(self):
+        html = """
+        <div>
+            <p>Odwiedź naszą stronę <a href="https://www.agh.edu.pl" title="Strona główna">AGH</a>.</p>
+            <ul>
+                <li><a href="https://www.agh.edu.pl/wydzialy">Lista wydziałów</a></li>
+                <li><a href="https://www.agh.edu.pl/studenci" title="Informacje dla studentów">Dla studentów</a></li>
+            </ul>
+        </div>
+        """
+        result = extract_links(html)
+
+        assert len(result) == 3
+        assert result[0]["url"] == "https://www.agh.edu.pl"
+        assert result[0]["title"] == "Strona główna"
+        assert result[1]["text"] == "Lista wydziałów"
+        assert result[2]["title"] == "Informacje dla studentów"
+
+def test_publication_parsing():
     test = TestPublicationParsing()
     test.test_basic_publication()
     print("Basic publication test passed!")
@@ -53,6 +95,19 @@ def main():
     print("Three authors test passed!")
     test.test_invalid_references()
     print("All tests passed!")
+
+def test_html_link_extraction():
+    test = TestHtmlLinkExtraction()
+    test.test_basic_links()
+    print("Basic links test passed!")
+    test.test_empty_html()
+    print("Empty HTML test passed!")
+    test.test_complex_html()
+    print("Complex HTML test passed!")
+
+def main():
+    # test_html_link_extraction()
+    test_publication_parsing()
     pass
 
 if __name__ == "__main__":
