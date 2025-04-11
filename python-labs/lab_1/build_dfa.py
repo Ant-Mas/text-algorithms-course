@@ -142,16 +142,23 @@ class DFA:
     def accepts(self, string):
         """Check if the DFA accepts the given string."""
         current_state = self.start_state
+        # print(self)
+        # print(f"Initial State: {current_state}")
+        # print(f"String: {string}")
 
         for i, symbol in enumerate(string):
+            # print(f"Step {i + 1}: Current State: {current_state}, Symbol: {symbol}")
             if symbol not in self.alphabet:
+                # print(f"Symbol '{symbol}' not in alphabet. Rejecting.")
                 return False
 
             if (current_state, symbol) not in self.transitions:
+                # print(f"No transition for state '{current_state}' with symbol '{symbol}'. Rejecting.")
                 return False
 
             current_state = self.transitions[(current_state, symbol)]
 
+        # print(f"Final State: {current_state}, Status: {'Accept' if current_state in self.accept_states else 'Reject'}")
         return current_state in self.accept_states
 
     def __str__(self):
@@ -227,7 +234,7 @@ def simplify(regex):
 
 
 def build_dfa(regex: RegEx, alphabet: set[str]) -> Optional[DFA]:
-    # TODO: Implement the Brzozowski algorithm to convert regex to DFA
+    # DONE: Implement the Brzozowski algorithm to convert regex to DFA
     # Steps:
     # 1. Start with the initial regex as the start state
     # 2. For each state and each symbol in the alphabet:
@@ -247,8 +254,54 @@ def build_dfa(regex: RegEx, alphabet: set[str]) -> Optional[DFA]:
     # Initialize state counter for generating unique state names
     state_counter = 0
 
+    def add_new_state(regex):
+        """ Funkcja która dla podanego regexu tworzy nowy stan i doda go dodaje go do obu słowników
+         state_to_regex i regex_to_state. """
+        nonlocal state_counter
+        regex_str = str(regex)
+        state_name = f"q{state_counter}"
+        state_counter += 1
+        states.add(state_name)
+        state_to_regex[state_name] = regex
+        regex_to_state[regex_str] = state_name
+        return state_name
+    
+    start_state = add_new_state(regex)
+    if regex.nullable():
+        accept_states.add(start_state)
+    ## Dodaje stan dla regexa startowego od razu sprawdzając czy jest to stan akceptujący
+    stack = deque()
+    for symbol in alphabet:
+        stack.append((regex, symbol))
+    ## Tworzę stos tranzycji do rozpatrzenia wszystkich osiągalnych stanów i symboli 
+
+    while len(stack) > 0:
+        prev_regex, symbol = stack.pop()
+        new_regex = simplify(prev_regex.derivative(symbol))
+        ## Zdejmuję tranzycje ze stosu i sprawdzam pochodną regexu względem symbolu
+
+        if isinstance(new_regex, Empty):
+            continue
+            ## Jeśli regex jest niespełnialny to tranzycja nie ma gdzie prowadzić dlatego natychmiast kończę
+
+        if str(new_regex) in regex_to_state:
+            current_state = regex_to_state[str(new_regex)]
+            transitions[(regex_to_state[str(prev_regex)], symbol)] = current_state
+            continue
+            ## Jeśli istnieje już stan dla uzyskanego regexu to jedynie dodaję tranzycję do tego stanu, unikając nieskończonych pętli
+
+        new_state = add_new_state(new_regex)
+        transitions[(regex_to_state[str(prev_regex)], symbol)] = new_state
+        if new_regex.nullable():
+            accept_states.add(str(new_state))
+        ## Tworzę nowy stan, dodaję do niego tranzycję i sprawdzam czy jest to stan akceptujący
+
+        for symbol in alphabet:
+            stack.append((new_regex, symbol))
+        ## Dodaję tranzycje na stos dla nowego regexu i wszystkich symboli z alfabetu
+
     # YOUR CODE HERE
 
     # Return the constructed DFA
     # You should return DFA(states, alphabet, transitions, start_state, accept_states)
-    return None
+    return DFA(states, alphabet, transitions, start_state, accept_states)
