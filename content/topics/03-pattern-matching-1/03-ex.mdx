@@ -1,0 +1,48 @@
+## Zadanie 3: Algorytm Knutha-Morrisa-Pratta (KMP) - `kmp_algorithm` (2 pkt)
+
+Zaimplementuj funkcje potrzebne do działania algorytmu Knutha-Morrisa-Pratta - `compute_lps_array` i `kmp_pattern_match`:
+
+```python
+def compute_lps_array(pattern: str) -> list[int]:
+    """
+    Compute the Longest Proper Prefix which is also Suffix array for KMP algorithm.
+
+    Args:
+        pattern: The pattern string
+
+    Returns:
+        The LPS array
+    """
+    # Twoja implementacja
+    pass
+
+def kmp_pattern_match(text: str, pattern: str) -> list[int]:
+    """
+    Implementation of the Knuth-Morris-Pratt pattern matching algorithm.
+
+    Args:
+        text: The text to search in
+        pattern: The pattern to search for
+
+    Returns:
+        A list of starting positions (0-indexed) where the pattern was found in the text
+    """
+    # Twoja implementacja
+    pass
+```
+
+Twoje zadanie:
+1. Zaimplementuj funkcję `compute_lps_array`, która oblicza tablicę najdłuższych prefiksów będących również sufiksami dla wzorca
+2. Zaimplementuj funkcję `kmp_pattern_match`, która wykorzystuje tablicę LPS do efektywnego wyszukiwania wzorca
+3. Obsłuż przypadki brzegowe (pusty wzorzec, pusty tekst)
+4. Zastanów się, jak KMP unika zbędnych porównań w stosunku do naiwnego algorytmu
+
+Przykład:
+```
+pattern = "ABABACA"
+LPS: [0, 0, 1, 2, 3, 0, 1]
+
+text = "ABABDABACDABABCABAB"
+pattern = "ABABC"
+Wynik: [10]
+```

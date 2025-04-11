@@ -1,0 +1,51 @@
+## Zadanie 2: Algorytm Z - `z_algorithm` (2 pkt)
+
+Zaimplementuj funkcje `compute_z_array` i `z_pattern_match` potrzebne do działania algorytmu Z:
+
+```python
+def compute_z_array(s: str) -> list[int]:
+    """
+    Compute the Z array for a string.
+
+    The Z array Z[i] gives the length of the longest substring starting at position i
+    that is also a prefix of the string.
+
+    Args:
+        s: The input string
+
+    Returns:
+        The Z array for the string
+    """
+    # Twoja implementacja
+    pass
+
+def z_pattern_match(text: str, pattern: str) -> list[int]:
+    """
+    Use the Z algorithm to find all occurrences of a pattern in a text.
+
+    Args:
+        text: The text to search in
+        pattern: The pattern to search for
+
+    Returns:
+        A list of starting positions (0-indexed) where the pattern was found in the text
+    """
+    # Twoja implementacja
+    pass
+```
+
+Twoje zadanie:
+1. Zaimplementuj funkcję `compute_z_array`, która oblicza tablicę Z dla ciągu znaków
+2. Zaimplementuj funkcję `z_pattern_match`, która wykorzystuje algorytm Z do wyszukiwania wzorca
+3. Zastanów się, jak efektywnie wykorzystać Z-boksy do uniknięcia zbędnych porównań
+4. Obsłuż przypadki brzegowe (pusty wzorzec, pusty tekst)
+
+Przykład:
+```
+s = "aabcaabxaaz"
+z_array: [0, 1, 0, 0, 3, 1, 0, 0, 2, 1, 0]
+
+text = "ABABABABABA"
+pattern = "ABA"
+Wynik: [0, 2, 4, 6, 8]
+```

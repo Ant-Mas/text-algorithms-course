@@ -1,0 +1,63 @@
+## Zadanie 4: Algorytm Boyera-Moore'a - `boyer_moore_algorithm` (3 pkt)
+
+Zaimplementuj funkcje `compute_bad_character_table`, `compute_good_suffix_table` i `boyer_moore_pattern_match` potrzebne do działania algorytmu Boyera-Moore'a:
+
+```python
+def compute_bad_character_table(pattern: str) -> dict:
+    """
+    Compute the bad character table for the Boyer-Moore algorithm.
+
+    Args:
+        pattern: The pattern string
+
+    Returns:
+        A dictionary with keys as characters and values as the rightmost position
+        of the character in the pattern (0-indexed)
+    """
+    # Twoja implementacja
+    pass
+
+def compute_good_suffix_table(pattern: str) -> list[int]:
+    """
+    Compute the good suffix table for the Boyer-Moore algorithm.
+
+    Args:
+        pattern: The pattern string
+
+    Returns:
+        A list where shift[i] stores the shift required when a mismatch
+        happens at position i of the pattern
+    """
+    # Twoja implementacja
+    pass
+
+def boyer_moore_pattern_match(text: str, pattern: str) -> list[int]:
+    """
+    Implementation of the Boyer-Moore pattern matching algorithm.
+
+    Args:
+        text: The text to search in
+        pattern: The pattern to search for
+
+    Returns:
+        A list of starting positions (0-indexed) where the pattern was found in the text
+    """
+    # Twoja implementacja
+    pass
+```
+
+Twoje zadanie:
+1. Zaimplementuj funkcję `compute_bad_character_table`, która tworzy tablicę złego znaku
+2. Zaimplementuj funkcję `compute_good_suffix_table`, która tworzy tablicę dobrego sufiksu
+3. Zaimplementuj funkcję `boyer_moore_pattern_match`, która wykorzystuje obie tablice do wyszukiwania wzorca
+4. Obsłuż przypadki brzegowe i zastanów się, jakie są zalety algorytmu Boyera-Moore'a w porównaniu z innymi algorytmami
+
+Przykład:
+```
+pattern = "ABCABC"
+bad_char_table: {'A': 3, 'B': 4, 'C': 5}
+
+text = "ABABDABACDABABCABAB"
+pattern = "ABABC"
+Wynik: [10]
+```

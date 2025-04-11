@@ -1,0 +1,33 @@
+## Zadanie 5: Algorytm Rabina-Karpa - `rabin_karp_pattern_match` (2 pkt)
+
+Zaimplementuj algorytm Rabina-Karpa do wyszukiwania wzorca:
+
+```python
+def rabin_karp_pattern_match(text: str, pattern: str, prime: int = 101) -> list[int]:
+    """
+    Implementation of the Rabin-Karp pattern matching algorithm.
+
+    Args:
+        text: The text to search in
+        pattern: The pattern to search for
+        prime: A prime number used for the hash function
+
+    Returns:
+        A list of starting positions (0-indexed) where the pattern was found in the text
+    """
+    # Twoja implementacja
+    pass
+```
+
+Twoje zadanie:
+1. Zaimplementuj algorytm Rabina-Karpa wykorzystujący haszowanie do wyszukiwania wzorca
+2. Użyj wartości liczbowych znaków (ord()) i funkcji haszującej bazującej na liczbie pierwszej
+3. Pamiętaj o efektywnym obliczaniu haszy dla kolejnych okien tekstu
+4. Obsłuż przypadki brzegowe i możliwe kolizje haszy
+
+Przykład:
+```
+text = "ABABABABABA"
+pattern = "ABA"
+Wynik: [0, 2, 4, 6, 8]
+```

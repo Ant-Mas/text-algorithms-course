@@ -1,0 +1,31 @@
+## Zadanie 1: Naiwny algorytm wyszukiwania wzorca - `naive_pattern_matching` (1 pkt)
+
+Zaimplementuj funkcję `naive_pattern_match`, która implementuje naiwny algorytm wyszukiwania wzorca w tekście:
+
+```python
+def naive_pattern_match(text: str, pattern: str) -> list[int]:
+    """
+    Implementation of the naive pattern matching algorithm.
+
+    Args:
+        text: The text to search in
+        pattern: The pattern to search for
+
+    Returns:
+        A list of starting positions (0-indexed) where the pattern was found in the text
+    """
+    # Twoja implementacja
+    pass
+```
+
+Twoje zadanie:
+1. Zaimplementuj naiwny algorytm wyszukiwania wzorca, który porównuje kolejne znaki tekstu i wzorca
+2. Funkcja powinna obsłużyć przypadki brzegowe (pusty wzorzec, pusty tekst)
+3. Zwróć listę wszystkich pozycji początkowych (indeksowanych od 0), na których występuje wzorzec
+
+Przykład:
+```
+text = "ABABABABABA"
+pattern = "ABA"
+Wynik: [0, 2, 4, 6, 8]
+```
