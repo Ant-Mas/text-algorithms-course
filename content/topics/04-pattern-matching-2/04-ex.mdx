@@ -1,0 +1,69 @@
+## Zadanie 4: Algorytm Aho-Corasick - `aho_corasick_algorithm` (3 pkt)
+
+Zaimplementuj algorytm Aho-Corasick do jednoczesnego wyszukiwania wielu wzorców:
+
+```python
+from collections import deque
+from typing import List, Tuple, Optional
+
+
+class AhoCorasickNode:
+    """Klasa reprezentująca węzeł w drzewie Aho-Corasick."""
+
+    def __init__(self):
+        """Inicjalizuje węzeł drzewa."""
+        self.goto = {}  # Przejścia do innych węzłów
+        self.fail: Optional[AhoCorasickNode] = None  # Wskaźnik fail
+        self.output: List[str] = []  # Lista wzorców kończących się w tym węźle
+
+
+class AhoCorasick:
+    """Klasa implementująca algorytm Aho-Corasick."""
+
+    def __init__(self, patterns: List[str]):
+        """
+        Inicjalizuje automat Aho-Corasick dla podanych wzorców.
+
+        Args:
+            patterns: Lista wzorców do wyszukiwania
+        """
+        pass
+
+    def _build_trie(self):
+        """
+        Buduje drzewo trie dla podanych wzorców.
+        """
+        pass
+
+    def _build_failure_links(self):
+        """Buduje wskaźniki fail dla automatu."""
+        pass
+
+    def search(self, text: str) -> List[Tuple[int, str]]:
+        """
+        Wyszukuje wszystkie wzorce w tekście.
+
+        Args:
+            text: Tekst do przeszukania
+
+        Returns:
+            Lista krotek (pozycja, wzorzec), gdzie pozycja to indeks początku wzorca w tekście
+        """
+        pass
+```
+
+Twoje zadanie:
+1. Zaimplementuj klasę AhoCorasickNode reprezentującą węzeł w drzewie Aho-Corasick
+2. Zaimplementuj klasę AhoCorasick z metodami do budowy automatu i wyszukiwania wzorców
+3. Metoda build_trie powinna tworzyć drzewo trie dla podanych wzorców
+4. Metoda build_failure_links powinna tworzyć wskaźniki fail dla automatu
+5. Metoda search powinna wyszukiwać wszystkie wzorce w tekście
+6. Obsłuż przypadki brzegowe (puste wzorce, pusty tekst)
+
+Przykład:
+
+```
+patterns = ["he", "she", "his", "hers"]
+text = "ushers"
+Wynik: [(1, "she"), (2, "he"), (3, "hers")]
+```

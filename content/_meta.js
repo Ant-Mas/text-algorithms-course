@@ -18,8 +18,12 @@ export default {
                 href: "/topics/02-regexes"
             },
             "03-pattern-matching-1": {
-                title: "3. Wyszukiwanie wzorca (1)",
+                title: "3. Wyszukiwanie wzorców (1)",
                 href: "/topics/03-pattern-matching-1"
+            },
+            "04-pattern-matching-2": {
+                title: "3. Wyszukiwanie wzorców (2)",
+                href: "/topics/04-pattern-matching-2"
             }
         }
     },

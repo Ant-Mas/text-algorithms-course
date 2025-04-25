@@ -1,0 +1,53 @@
+## Zadanie 2: Przybliżone wyszukiwanie wzorca - `fuzzy_matching` (2 pkt)
+
+Zaimplementuj funkcje do przybliżonego wyszukiwania wzorca, wykorzystując odległość Hamminga i algorytm Shift-Or:
+
+```python
+def hamming_distance(s1: str, s2: str) -> int:
+    """
+    Oblicza odległość Hamminga między dwoma ciągami znaków.
+
+    Args:
+        s1: Pierwszy ciąg znaków
+        s2: Drugi ciąg znaków
+
+    Returns:
+        Odległość Hamminga (liczba pozycji, na których znaki się różnią)
+        Jeśli ciągi mają różne długości, zwraca -1
+    """
+    pass
+
+def fuzzy_shift_or(text: str, pattern: str, k: int = 2) -> list[int]:
+    """
+    Implementacja przybliżonego wyszukiwania wzorca przy użyciu algorytmu Shift-Or.
+
+    Args:
+        text: Tekst do przeszukania
+        pattern: Wzorzec do wyszukiwania
+        k: Maksymalna dopuszczalna liczba różnic (odległość Hamminga)
+
+    Returns:
+        Lista pozycji (0-indeksowanych), na których znaleziono wzorzec
+        z maksymalnie k różnicami
+    """
+    pass
+```
+
+Twoje zadanie:
+1. Zaimplementuj funkcję `hamming_distance`, która oblicza odległość Hamminga między dwoma ciągami
+2. Zaimplementuj funkcję `fuzzy_shift_or`, która rozszerza algorytm Shift-Or o obsługę k różnic
+3. Pamiętaj o wykorzystaniu masek bitowych do śledzenia potencjalnych dopasowań z różnymi liczbami błędów
+4. Obsłuż przypadki brzegowe (pusty wzorzec, pusty tekst, k < 0)
+5. Zastanów się, jak efektywnie zaimplementować śledzenie potencjalnych dopasowań z różnymi liczbami błędów
+
+Przykład:
+```
+s1 = "algorytm"
+s2 = "altorynm"
+hamming_distance(s1, s2) = 2
+
+text = "abcdefabcde"
+pattern = "abd"
+k = 1
+fuzzy_shift_or(text, pattern, k) = [0, 6]
+```

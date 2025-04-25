@@ -1,0 +1,40 @@
+## Zadanie 5: Wyszukiwanie wzorców dwuwymiarowych - `two_dimensional_search` (2 pkt)
+
+Zaimplementuj algorytm do wyszukiwania wzorca dwuwymiarowego w tekście dwuwymiarowym:
+
+```python
+def find_pattern_2d(text: list[str], pattern: list[str]) -> list[tuple[int, int]]:
+    """
+    Wyszukuje wzorzec dwuwymiarowy w tekście dwuwymiarowym.
+
+    Args:
+        text: Tekst dwuwymiarowy (lista ciągów znaków tej samej długości)
+        pattern: Wzorzec dwuwymiarowy (lista ciągów znaków tej samej długości)
+
+    Returns:
+        Lista krotek (i, j), gdzie (i, j) to współrzędne lewego górnego rogu wzorca w tekście
+    """
+    pass
+```
+
+Twoje zadanie:
+1. Zaimplementuj algorytm wyszukiwania wzorca dwuwymiarowego
+2. Wykorzystaj podejście opisane w wykładzie - wyszukiwanie kolumn wzorca w tekście, a następnie weryfikacja ciągłości
+3. Możesz wykorzystać dowolny algorytm jednowymiarowy do wyszukiwania kolumn (np. Shift-Or, KMP)
+4. Obsłuż przypadki brzegowe (pusty wzorzec, pusty tekst, nierówne długości wierszy)
+5. Zoptymalizuj algorytm, aby uniknąć zbędnych porównań
+
+Przykład:
+```
+text = [
+    "abcdef",
+    "ghijkl",
+    "mnopqr",
+    "stuvwx"
+]
+pattern = [
+    "hij",
+    "opq"
+]
+Wynik: [(1, 2)]
+```

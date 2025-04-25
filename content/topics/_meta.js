@@ -8,7 +8,11 @@ export default {
         type: "page"
     },
     "03-pattern-matching-1": {
-        title: "Wyszukiwanie wzorca (1)",
+        title: "Wyszukiwanie wzorców (1)",
+        type: "page"
+    },
+    "04-pattern-matching-2": {
+        title: "Wyszukiwanie wzorców (2)",
         type: "page"
     }
 }

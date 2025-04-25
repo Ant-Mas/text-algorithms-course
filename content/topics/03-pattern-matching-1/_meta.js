@@ -1,7 +1,7 @@
 export default {
     _: {
         type: 'separator',
-        title: 'Regexes'
+        title: 'Wyszukiwanie wzorców (1)'
     },
     index: "Informacje",
     __: {

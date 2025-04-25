@@ -1,0 +1,69 @@
+## Zadanie 1: Algorytm Shift-Or - `shift_or_algorithm` (2 pkt)
+
+Zaimplementuj funkcje `set_nth_bit`, `nth_bit`, `make_mask` i `shift_or` potrzebne do działania algorytmu Shift-Or:
+
+```python
+def set_nth_bit(n: int) -> int:
+    """
+    Zwraca maskę bitową z ustawionym n-tym bitem na 1.
+
+    Args:
+        n: Pozycja bitu do ustawienia (0-indeksowana)
+
+    Returns:
+        Maska bitowa z n-tym bitem ustawionym na 1
+    """
+    pass
+
+def nth_bit(m: int, n: int) -> int:
+    """
+    Zwraca wartość n-tego bitu w masce m.
+
+    Args:
+        m: Maska bitowa
+        n: Pozycja bitu do odczytania (0-indeksowana)
+
+    Returns:
+        Wartość n-tego bitu (0 lub 1)
+    """
+    pass
+
+def make_mask(pattern: str) -> list:
+    """
+    Tworzy tablicę masek dla algorytmu Shift-Or.
+
+    Args:
+        pattern: Wzorzec do wyszukiwania
+
+    Returns:
+        Tablica 256 masek, gdzie każda maska odpowiada jednemu znakowi ASCII
+    """
+    pass
+
+def shift_or(text: str, pattern: str) -> list[int]:
+    """
+    Implementacja algorytmu Shift-Or do wyszukiwania wzorca.
+
+    Args:
+        text: Tekst do przeszukania
+        pattern: Wzorzec do wyszukiwania
+
+    Returns:
+        Lista pozycji (0-indeksowanych), na których znaleziono wzorzec
+    """
+    pass
+```
+
+Twoje zadanie:
+1. Zaimplementuj funkcje pomocnicze `set_nth_bit` i `nth_bit` do operacji bitowych
+2. Zaimplementuj funkcję `make_mask`, która tworzy tablicę masek dla wzorca
+3. Zaimplementuj funkcję `shift_or`, która wykorzystuje maski do wyszukiwania wzorca
+4. Obsłuż przypadki brzegowe (pusty wzorzec, pusty tekst)
+5. Zastanów się, jakie są zalety algorytmu Shift-Or w porównaniu z innymi algorytmami
+
+Przykład:
+```
+text = "ABABCABCABC"
+pattern = "ABC"
+Wynik: [2, 5, 8]
+```
