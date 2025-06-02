@@ -14,5 +14,13 @@ export default {
     "04-pattern-matching-2": {
         title: "Wyszukiwanie wzorców (2)",
         type: "page"
+    },
+    "05-suffixes-and-pattern-matching-summary": {
+        title: "Struktury Sufiksowe i Dopasowywanie Wzorców",
+        type: "page"
+    },
+    "06-sequence-alignment": {
+        title: "Algorytmy wyrównywania sekwencji i podobieństwa",
+        type: "page"
     }
 }

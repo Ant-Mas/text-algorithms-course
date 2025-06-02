@@ -1,0 +1,46 @@
+## Zadanie 3: Tablica Sufiksów vs. Drzewo Sufiksów (2 pkt)
+
+Zaimplementuj obie struktury danych - tablicę sufiksów i drzewo sufiksów - dla tego samego tekstu, a następnie porównaj ich zużycie pamięci i czas konstrukcji.
+
+```python
+def compare_suffix_structures(text: str) -> dict:
+    """
+    Compare suffix array and suffix tree data structures.
+
+    Args:
+        text: The input text for which to build the structures
+
+    Returns:
+        A dictionary containing:
+        - Construction time for both structures
+        - Memory usage for both structures
+        - Size (number of nodes/elements) of both structures
+    """
+    # Implement suffix array construction
+
+    # Use suffix tree construction using Ukkonen's algorithm
+
+    # Measure and compare metrics
+
+    return {
+        "suffix_array": {
+            "construction_time_ms": 0,
+            "memory_usage_kb": 0,
+            "size": 0
+        },
+        "suffix_tree": {
+            "construction_time_ms": 0,
+            "memory_usage_kb": 0,
+            "size": 0
+        }
+    }
+```
+
+Przeanalizuj, jak te metryki skalują się wraz z rozmiarem tekstu, testując na tekstach o różnej długości (np. 100, 1000, 10000, 100000 znaków).
+
+**Ważne:** Utwórz szczegółowe wykresy pokazujące:
+1. Czas konstrukcji w zależności od rozmiaru tekstu
+2. Zużycie pamięci w zależności od rozmiaru tekstu
+3. Rozmiar (liczba elementów) w zależności od rozmiaru tekstu
+
+Użyj odpowiednich skal i upewnij się, że wykresy wyraźnie ilustrują różnice w charakterystykach wydajności. Wyjaśnij, w jakich scenariuszach preferowałbyś tablice sufiksów zamiast drzew sufiksów i odwrotnie.

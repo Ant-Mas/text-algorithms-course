@@ -1,0 +1,70 @@
+# Laboratorium: Struktury Sufiksowe i Dopasowywanie Wzorców
+
+## Przegląd
+
+W tym laboratorium będziemy badać i porównywać różne algorytmy dopasowywania wzorców tekstowych, ze szczególnym uwzględnieniem struktur danych opartych na sufiksach. Przeanalizujemy ich charakterystyki wydajnościowe pod względem złożoności czasowej i zużycia pamięci oraz zbadamy ich praktyczne zastosowania.
+
+## Cel
+
+- Implementacja i porównanie różnych algorytmów dopasowywania wzorców
+- Analiza złożoności czasowej i pamięciowej każdej metody
+- Zastosowanie struktur danych opartych na sufiksach do rozwiązywania problemów dopasowywania wzorców
+- Zrozumienie kompromisów między różnymi podejściami
+
+## Wskazówki do implementacji
+
+1. Do pomiaru czasu wykonania możesz użyć modułu `time` w Pythonie:
+```python
+import time
+start_time = time.time()
+# Execute algorithm
+end_time = time.time()
+execution_time_ms = (end_time - start_time) * 1000
+   ```
+
+2. Do pomiaru zużycia pamięci możesz użyć biblioteki `psutil`:
+```python
+import psutil
+import os
+
+def get_memory_usage():
+    process = psutil.Process(os.getpid())
+    return process.memory_info().rss / 1024  # in KB
+   ```
+
+3. Aby liczyć porównania znaków, zmodyfikuj swoje algorytmy, zwiększając licznik za każdym razem, gdy porównujesz znaki.
+
+4. Do wizualizacji użyj bibliotek takich jak `matplotlib` lub `seaborn`. Na przykład:
+```python
+import matplotlib.pyplot as plt
+
+# Creating a comparison chart
+plt.figure(figsize=(10, 6))
+plt.plot(sizes, naive_times, label='Naive', marker='o')
+plt.plot(sizes, kmp_times, label='KMP', marker='s')
+plt.plot(sizes, suffix_array_times, label='Suffix Array', marker='^')
+plt.plot(sizes, suffix_tree_times, label='Suffix Tree', marker='*')
+plt.xlabel('Text Size')
+plt.ylabel('Execution Time (ms)')
+plt.title('Pattern Matching Algorithm Performance')
+plt.legend()
+plt.grid(True)
+plt.savefig('performance_comparison.png', dpi=300)
+   ```
+
+5. Do testowania z różnymi rozmiarami tekstu, rozważ użycie:
+- Rzeczywistych danych tekstowych (książki, artykuły)
+- Losowo generowanych tekstów
+- Powtarzających się wzorców
+- Tzw. worst-case scenarios
+
+## Ważna uwaga dotycząca wykresów i wizualizacji
+
+Dla każdego zadania porównawczego musisz utworzyć czytelne, informacyjne wykresy, które właściwie obrazują różnice między algorytmami lub strukturami danych. Twoje wykresy powinny:
+
+- Mieć odpowiednio opisane osie z jednostkami
+- Zawierać legendę wyjaśniającą każdą narysowaną linię
+- Używać odpowiednich skal (np. logarytmicznych, gdy to konieczne)
+- Zawierać tytuły, które jasno opisują co jest porównywane
+- Być wystarczająco duże i mieć wystarczającą rozdzielczość, aby być łatwo czytelnymi
+- Używać różnych znaczników lub kolorów do rozróżnienia różnych algorytmów/struktur

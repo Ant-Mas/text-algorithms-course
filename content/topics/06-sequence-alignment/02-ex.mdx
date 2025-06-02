@@ -1,0 +1,65 @@
+## Zadanie 2: Algorytm Wagnera-Fischera - `wagner_fischer` (2 pkt)
+
+Zaimplementuj efektywny algorytm Wagnera-Fischera do obliczania odległości edycyjnej:
+
+```python
+def wagner_fischer(s1: str, s2: str,
+                  insert_cost: int = 1,
+                  delete_cost: int = 1,
+                  substitute_cost: int = 1) -> int:
+    """
+    Oblicza odległość edycyjną używając algorytmu Wagnera-Fischera (programowanie dynamiczne).
+
+    Args:
+        s1: Pierwszy ciąg znaków
+        s2: Drugi ciąg znaków
+        insert_cost: Koszt operacji wstawienia
+        delete_cost: Koszt operacji usunięcia
+        substitute_cost: Koszt operacji zamiany
+
+    Returns:
+        Odległość edycyjna z uwzględnieniem kosztów operacji
+    """
+    pass
+
+def wagner_fischer_with_alignment(s1: str, s2: str) -> tuple[int, str, str]:
+    """
+    Oblicza odległość edycyjną i zwraca wyrównanie sekwencji.
+
+    Args:
+        s1: Pierwszy ciąg znaków
+        s2: Drugi ciąg znaków
+
+    Returns:
+        Krotka zawierająca odległość edycyjną i dwa wyrównane ciągi
+        (w wyrównanych ciągach '-' oznacza lukę)
+    """
+    pass
+
+def wagner_fischer_space_optimized(s1: str, s2: str) -> int:
+    """
+    Oblicza odległość edycyjną używając zoptymalizowanej pamięciowo wersji algorytmu.
+
+    Args:
+        s1: Pierwszy ciąg znaków
+        s2: Drugi ciąg znaków
+
+    Returns:
+        Odległość edycyjna
+    """
+    pass
+```
+
+Twoje zadanie:
+1. Zaimplementuj algorytm Wagnera-Fischera z możliwością ustawienia kosztów operacji
+2. Zaimplementuj wersję zwracającą wyrównanie sekwencji
+3. Zaimplementuj wersję zoptymalizowaną pamięciowo (O(min(m,n)) zamiast O(m*n))
+4. Obsłuż przypadki brzegowe
+
+Przykład:
+```
+s1 = "GCATGCU"
+s2 = "GATTACA"
+wagner_fischer(s1, s2) = 4
+wagner_fischer_with_alignment(s1, s2) = (4, "GCATG-CU", "G-ATTACA")
+```

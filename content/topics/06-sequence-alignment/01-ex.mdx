@@ -1,0 +1,47 @@
+## Zadanie 1: Algorytm naiwny dla odległości edycyjnej - `naive_edit_distance` (2 pkt)
+
+Zaimplementuj naiwną (rekurencyjną) wersję algorytmu obliczania odległości edycyjnej:
+
+```python
+def naive_edit_distance(s1: str, s2: str) -> int:
+    """
+    Oblicza odległość edycyjną między dwoma ciągami używając naiwnego algorytmu rekurencyjnego.
+
+    Args:
+        s1: Pierwszy ciąg znaków
+        s2: Drugi ciąg znaków
+
+    Returns:
+        Odległość edycyjna (minimalna liczba operacji wstawienia, usunięcia
+        lub zamiany znaku potrzebnych do przekształcenia s1 w s2)
+    """
+    pass
+
+def naive_edit_distance_with_operations(s1: str, s2: str) -> tuple[int, list[str]]:
+    """
+    Oblicza odległość edycyjną i zwraca listę operacji potrzebnych do przekształcenia s1 w s2.
+
+    Args:
+        s1: Pierwszy ciąg znaków
+        s2: Drugi ciąg znaków
+
+    Returns:
+        Krotka zawierająca odległość edycyjną i listę operacji
+        Operacje: "INSERT x", "DELETE x", "REPLACE x->y", "MATCH x"
+    """
+    pass
+```
+
+Twoje zadanie:
+1. Zaimplementuj naiwną wersję algorytmu obliczania odległości edycyjnej
+2. Zaimplementuj wersję zwracającą również sekwencję operacji
+3. Obsłuż przypadki brzegowe (puste ciągi)
+4. Zastanów się nad złożonością czasową tego podejścia
+
+Przykład:
+```
+s1 = "kitten"
+s2 = "sitting"
+naive_edit_distance(s1, s2) = 3
+naive_edit_distance_with_operations(s1, s2) = (3, ["REPLACE k->s", "MATCH i", "MATCH t", "MATCH t", "REPLACE e->i", "INSERT n", "INSERT g"])
+```
